@@ -10,7 +10,12 @@ payload = response.json()
 country = payload[1][0]
 
 print("Status code:", response.status_code)
+print()
+
+print("Data received:", country)
+print()
+
 print("Country:", country["name"])
+print("Capital:", country["capitalCity"])
 print("Region:", country["region"]["value"])
 print("Income Level:", country["incomeLevel"]["value"])
-print("Data received:", country)
