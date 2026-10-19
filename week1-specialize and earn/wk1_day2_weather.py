@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 api_key = os.getenv("OPENWEATHER_API_KEY")
-city = "Eldoret"
+city = "Nairobi"
 
 url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
 
@@ -28,3 +28,19 @@ print("Humidity:", data["main"]["humidity"], "%")
 print("Wind Speed:", data["wind"]["speed"], "m/s")
 print("="*140)
 
+# Save json as a file.
+
+import json
+
+#def run_tool():
+ #   print("weather data")
+
+ #   if not city:
+  #      print("Check city name")
+
+def save_to_file(data, filename):
+    with open(filename, "w") as f:
+        json.dump(data, f, indent=2)
+    print(f"Data saved to {filename}")
+
+#run_tool
