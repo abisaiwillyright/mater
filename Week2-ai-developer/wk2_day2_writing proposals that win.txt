@@ -69,3 +69,6 @@ I will build a dashboard that will require a single seach pup up the brief resul
 Call to action
 Happy toanser one question above befor I decide on the price and delivery time.
 Where does your data lives? database or google spreadsheet.
+if database, delivery time will be 21 working days from the time of getting access to database cost KES 37,000
+if google spreadsheet, delivery time will be 15 working days from the time of getting access to google spreadsheet cost KES 31,000 
+Down payment of 50% will be paid apon agrement and the balance 50% will be paid apon delivery and tested of the project.

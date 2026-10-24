@@ -36,9 +36,12 @@ Order-taking was never in the brief. This is a separate project.
 
 
 Example 2 Delivery Message
-Hello [Client],
+Hello James Karani,
+
 The dashboard system for sales data is ready. 
-Here is the sammary of what was delivered; Customer wise and all customers.
+
+Here is the sammary of what was delivered:
+The data is pulled directly from the database with a simple seach of a customer name or all customers.
 - A sales summary report
 - Daily sales report
 - Monthly sales report
@@ -46,3 +49,5 @@ Here is the sammary of what was delivered; Customer wise and all customers.
 - A half an year sales report
 - Yearly sales report
 - Date wise sales report
+
+Have the system tested for 3 days and share the feedback. I will prepare the final invoce of the remaining 50%.
