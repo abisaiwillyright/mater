@@ -1,0 +1,95 @@
+Project: The Full Client Cycle
+
+
+Brief: Dairy Co-op Price Checker
+"Hello, 
+we run a small dairy co-op in Kiambu. We have about 30 farmer members who supply milk daily. 
+Right now we have to call or WhatsApp each farmer to tell them the current buying price per litre, which changes weekly.
+We want a simple tool where a farmer can enter their name and how many litres they supplied, and it will show them the total amount we owe them at today's price. 
+We have no website. A simple program is fine. 
+Budget: KES 8,000. Needed by end of week."
+
+
+
+Stage 1: Read and Analyse the Brief
+Problem         - Manual way of updating prices to farmers that need a automation.
+The deliverable - Simple website or google doc that is attched with spreadsheep
+The deadline    - 1 week
+The Price       - KES 8,000
+What is unclear:
+what format does the farmer use to enter their name? 
+How is the current price stored and updated? 
+Who updates the price each week? 
+Is this a command-line tool or something else? 
+Does the tool need to store a history of payments or just calculate the current one?
+
+
+Stage 2: Write a Clarifying Question
+Suggested question: "Where does the current buying price live? 
+If it is in a spreadsheet, I can read it directly. 
+If someone types it in manually each week, I will need a simple way to update it."
+
+Assumption in case they don't annswer to state in your proposal: 
+"I am assuming the current price is stored in a simple text file or a single cell in a spreadsheet. 
+If it is in a database or a more complex system, timeline extends by 2 day and this will affect the price as well."
+
+
+Stage 3: Write the Proposal
+
+Opening
+You mantioned that you are strugling to update farmers with milk price manually which keeps changing weekly.
+I can buld a simple website that farmer enter their name and date and they get the data with the current updated milk price.
+
+Understanding
+Before I start, I would like to understand 3 things:
+what format does the farmer use to enter their name? Do they have dairy farm ID?
+How is the current price stored and updated? database or spreadsheep
+Does the tool need to store a history of payments or just calculate the current one?
+
+Approach
+I will buld a dashboard connected to the current milk price
+A farmer will enter his full name and number of liters supplied. He will get the current price and total amount
+
+Deliverables
+A working dashboard
+Admin page to update the price
+A 30-minutes handover call with your team so that they can know how to use it and maintain it.
+
+Price and timeline
+KES 15,400. 
+Ready in 10 working days from when you provide the access do milk price and supply and 50% deposit.
+
+Call to action
+Happy to answer the above 3 questions before you decide.
+
+Payment terms
+50% deposit KES 7,700 due before work begins to KCB Bank account; Abisai Siloba - 0129176740000.
+Remaining 50% KES 7,700 due within 2 business days of delivery confirmation.
+Work does not start until the deposit is received.
+Delivery timeline of 10 working days starts from the date the deposit clears.
+
+Assumption about the price storage.
+I am assuming the milk price and customer data are stored in a spreadsheet. 
+If they are stored in database, the timeline will increase by 2 days with Kes 2,000
+
+
+
+Stage 4: Build the Deliverable
+A working dashboard page 
+http://127.0.0.1:8000/wk2_day5_poject_dairy%20coop%20calculator%20dashboard.html
+Admin page to update the prices
+http://file.Week2-ai-developer/price.txt
+
+
+Stage 5: Package and Deliver
+
+Hello Mr. John Kamau,
+The dashboard for Kiambu dairy farm calculator is ready. Here is the summary of what was delivered.
+- A working dashboard where a farmers fills the name and milk supplied then he gets the total amount
+- Admin page to update the price.
+I have set up a 2 days testing. Send it to your common customers and ask them to test it.
+This covers everything in the original brief. Please review it over the next two business days. 
+If everything looks good, send me a message confirming and I will invoice for the remaining 50%.
+Let me know if you have questions.
+
+

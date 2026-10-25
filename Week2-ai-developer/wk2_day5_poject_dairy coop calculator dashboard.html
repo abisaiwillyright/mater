@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dairy Co-op Payment Calculator</title>
+    <style>
+      :root {
+        --green-900: #114d2b;
+        --green-700: #1f7a4f;
+        --green-100: #eaf8f0;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --danger: #b91c1c;
+        --white: #ffffff;
+        --shadow: rgba(17, 77, 43, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, #f3fff7 0%, #e6f7ed 100%);
+        color: var(--text);
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .dashboard {
+        width: min(100%, 560px);
+        background: var(--white);
+        border-radius: 18px;
+        box-shadow: 0 16px 32px var(--shadow);
+        padding: 28px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(1.8rem, 2vw, 2.5rem);
+        color: var(--green-900);
+        text-align: center;
+      }
+
+      .subtitle {
+        margin: 0 0 24px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      .field {
+        margin-bottom: 18px;
+      }
+
+      label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--green-900);
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid #c9d9cf;
+        border-radius: 10px;
+        font-size: 1rem;
+        outline: none;
+        transition: border 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      input:focus {
+        border-color: var(--green-700);
+        box-shadow: 0 0 0 4px rgba(31, 122, 79, 0.12);
+      }
+
+      button {
+        width: 100%;
+        border: none;
+        background: var(--green-700);
+        color: var(--white);
+        border-radius: 10px;
+        padding: 14px 16px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      button:hover {
+        opacity: 0.96;
+        transform: translateY(-1px);
+      }
+
+      .secondary-button {
+        width: auto;
+        min-width: 150px;
+        margin-top: 12px;
+        background: #edf7f1;
+        color: var(--green-900);
+        border: 1px solid rgba(17, 77, 43, 0.18);
+      }
+
+      .error {
+        min-height: 22px;
+        margin-top: 14px;
+        color: var(--danger);
+        font-weight: 700;
+      }
+
+      .result {
+        margin-top: 22px;
+        background: var(--green-100);
+        border: 1px solid rgba(31, 122, 79, 0.2);
+        border-radius: 12px;
+        padding: 18px;
+      }
+
+      .result.hidden {
+        display: none;
+      }
+
+      .result-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(17, 77, 43, 0.12);
+      }
+
+      .result-row:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .label {
+        font-weight: 700;
+        color: var(--green-900);
+      }
+
+      .value {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="dashboard">
+      <h1>Kiambu Dairy Co-op Payment Calculator</h1>
+      <p class="subtitle">Farmer name and litres supplied are used to calculate the payment due.</p>
+
+      <div class="field">
+        <label for="farmerName">Farmer name</label>
+        <input id="farmerName" type="text" placeholder="Enter farmer name. e.g John Kamau" />
+      </div>
+
+      <div class="field">
+        <label for="litresSupplied">Litres supplied today</label>
+        <input id="litresSupplied" type="number" min="0.01" step="0.01" placeholder="e.g. 150" />
+      </div>
+
+      <div class="field">
+        <label for="buyingPrice">Current buying price (KES per litre)</label>
+        <input id="buyingPrice" type="number" min="0.01" step="0.01" value="price.txt" readonly />
+        <button type="button" class="secondary-button" onclick="refreshPrice()">Refresh Price</button>
+      </div>
+
+      <button type="button" onclick="calculatePayment()">Calculate Payment</button>
+      <div id="error" class="error" aria-live="polite"></div>
+
+      <section id="result" class="result hidden" aria-live="polite">
+        <div class="result-row">
+          <span class="label">Farmer</span>
+          <span id="farmerValue" class="value"></span>
+        </div>
+        <div class="result-row">
+          <span class="label">Litres</span>
+          <span id="litresValue" class="value"></span>
+        </div>
+        <div class="result-row">
+          <span class="label">Price</span>
+          <span id="priceValue" class="value"></span>
+        </div>
+        <div class="result-row">
+          <span class="label">Total</span>
+          <span id="totalValue" class="value"></span>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const priceFilePath = 'price.txt';
+
+      async function getCurrentPrice() {
+        try {
+          const response = await fetch(priceFilePath);
+          if (!response.ok) {
+            throw new Error('Unable to read price file');
+          }
+
+          const rawValue = await response.text();
+          const parsed = Number(rawValue.trim());
+
+          if (!Number.isFinite(parsed) || parsed <= 0) {
+            throw new Error('Invalid price value in file');
+          }
+
+          return parsed;
+        } catch (error) {
+          throw new Error('Could not load current milk price from price.txt.');
+        }
+      }
+
+      async function refreshPrice() {
+        const priceInput = document.getElementById('buyingPrice');
+        const errorBox = document.getElementById('error');
+
+        try {
+          const price = await getCurrentPrice();
+          priceInput.value = price.toFixed(2);
+          errorBox.textContent = '';
+        } catch (error) {
+          errorBox.textContent = error.message;
+          priceInput.value = '0';
+        }
+      }
+
+      async function populatePriceField() {
+        await refreshPrice();
+      }
+
+      function calculatePayment() {
+        const name = document.getElementById('farmerName').value.trim();
+        const litresInput = document.getElementById('litresSupplied').value;
+        const errorBox = document.getElementById('error');
+        const resultBox = document.getElementById('result');
+
+        errorBox.textContent = '';
+        resultBox.classList.add('hidden');
+
+        if (!name) {
+          errorBox.textContent = 'Name is required.';
+          return;
+        }
+
+        const litres = Number(litresInput);
+        if (!Number.isFinite(litres) || litres <= 0) {
+          errorBox.textContent = 'Please enter a valid number for litres.';
+          return;
+        }
+
+        const price = Number(document.getElementById('buyingPrice').value);
+        if (!Number.isFinite(price) || price <= 0) {
+          errorBox.textContent = 'Current milk price is unavailable or invalid.';
+          return;
+        }
+
+        const total  = litres * price;
+
+        document.getElementById('farmerValue').textContent = name;
+        document.getElementById('litresValue').textContent = `${litres.toFixed(2)} L`;
+        document.getElementById('priceValue').textContent = `KES ${price.toFixed(2)}/litre`;
+        document.getElementById('totalValue').textContent = `KES ${total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+        resultBox.classList.remove('hidden');
+      }
+
+      populatePriceField();
+    </script>
+  </body>
+</html>

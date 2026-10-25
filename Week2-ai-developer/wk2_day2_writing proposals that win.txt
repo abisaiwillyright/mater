@@ -32,7 +32,8 @@ Customers asking about prices or availability get an instant, accurate response.
 Messages outside that scope get flagged for your team to handle manually.
 
 Deliverables
-A working automated reply system, a simple admin interface to update prices and stock, and a 30-minute handover call so your team knows how to use and maintain it.
+A working automated reply system, a simple admin interface to update prices and stock, and
+A 30-minute handover call so your team knows how to use and maintain it.
 
 Price and timeline
 KES 35,000. Ready in 10 working days from when you provide access to your WhatsApp Business account and product list. 

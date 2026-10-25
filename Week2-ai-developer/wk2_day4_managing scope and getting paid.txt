@@ -1,0 +1,89 @@
+Writing a Scope Statement
+A scope statement has two sections: 
+what is included and what is not included. 
+The second section is as important as the first. 
+Clients rarely know what is out of scope because they do not know what they do not know. You have to tell them.
+
+
+
+
+Example Scope Statement: WhatsApp Bot Project
+
+Included:
+- Automated replies to questions about prices and stock availability
+- Admin page to update the product list without code
+- Daily digest of messages that required human follow-up
+- 30-minute handover call
+
+Not included:
+- Order processing or payment collection
+- Integration with any stock management software
+- WhatsApp Business API account setup (client handles this)
+- Changes to the product list format after handover
+- Ongoing maintenance or updates after delivery
+
+Communicate clearly to client to be on the same page.
+Message - "Does this scope match what you need?"
+
+
+
+
+Payment Structure: 50% Upfront, 50% on Delivery
+Never start work without a deposit, It protects you if the client disappears.
+It confirms the client is serious and gives you working capital.
+
+For larger projects (over KES 100,000), break it into three: 
+- 33% upfront, 
+- 33% at a defined midpoint milestone, 
+- 34% on delivery. This reduces risk on both sides.
+
+
+send a payment request message
+"Please send KES 17,500 (50% deposit) to [Paybill/Number]. 
+This confirms we can start work. 
+I will begin once the deposit is received."
+
+
+
+Set Your Payment Terms Statement.
+
+Payment Terms
+50% deposit KES [amount] due before work begins.
+Remaining 50% KES [amount] due within 2 business days of delivery confirmation.
+Work does not start until the deposit is received.
+Delivery timeline of [X] working days starts from the date the deposit clears.
+
+
+Handling Late Payment
+"Hello [Name], 
+just following up on the balance of KES [amount] for the [project name] project. You confirmed delivery on [date]. 
+If there are any issues with the work that need attention before you can pay, please let me know and I will address them. 
+Otherwise, payment to [number/paybill] would be great. 
+Thank you."
+
+
+If there is no response after a second follow-up, sto sending reminders and focus on other things.
+Chasing payment for weeks is not profitable regardless of the project rate.
+
+
+
+
+Escrow on Upwork and Fiverr
+This solves the payment problems.
+The client deposits the project budget before you start. 
+It sits with the platform. When you deliver and the client approves, the platform releases the money to you.
+
+
+
+
+
+Today's Exercise
+Write a complete project agreement for a sample engagement. Use this scenario: a small school wants a Python script that reads their student attendance Excel file and sends an automated SMS to parents when a student has been absent 3 or more days that week. Budget: KES 22,000. Timeline: 7 working days.
+
+Your agreement must include:
+
+Scope statement: what is included and what is not included (at least 3 items each)
+Payment terms: deposit amount, final amount, when each is due
+Timeline: start date (when deposit clears), delivery date
+One sentence on what happens if the client requests changes after delivery that were not in scope
+Keep it to one page. Plain language. No legal jargon. This should be something you can send on WhatsApp or email and the client immediately understands it.
