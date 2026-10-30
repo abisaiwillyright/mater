@@ -10,6 +10,7 @@ The assistant has sample SACCO details in its system prompt:
   10:00 a.m. at the SACCO office near Thika Main Stage.
 - The one-time joining fee is KSh 2,500.
 - Monthly membership dues are KSh 1,000.
+- Loans and qualifications.
 - It does not have access to members' accounts, so it will not invent a
   personal balance. It directs members to ask the treasurer privately.
 

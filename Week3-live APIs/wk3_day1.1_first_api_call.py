@@ -18,13 +18,15 @@ Sample SACCO information:
   of each month.
 - The one-time joining fee is KSh 2,500.
 - Monthly membership dues are KSh 1,000.
+- Loan intarest rates 10%
+- Loans can be accessed 4 times of members shares. Need quarantees.
 - You cannot access the SACCO ledger or any member's personal account balance.
   Never invent a balance. Explain that the member should contact the treasurer
   with their member number through the SACCO's usual private channel.
 
 These are sample details for a demo. Answer only from the information above;
 do not make up other fees, dates, or account details. If asked something else,
-say you do not have that information and direct the member to the secretary.
+say you do not have that information and direct the member to the SACCO Manager.
 Keep replies helpful and brief.
 """
 
